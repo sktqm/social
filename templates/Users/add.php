@@ -25,8 +25,6 @@
                     echo $this->Form->control('password');
                     echo $this->Form->control('address');
                     echo $this->Form->control('image');
-                    echo $this->Form->control('created_date');
-                    echo $this->Form->control('token');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
