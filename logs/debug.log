@@ -4009,3 +4009,45 @@ Cake\Http\Runner::run() /var/www/html/soical_ck/vendor/cakephp/cakephp/src/Http/
 Cake\Http\Server::run() /var/www/html/soical_ck/vendor/cakephp/cakephp/src/Http/Server.php, line 90
 [main] /var/www/html/soical_ck/webroot/index.php, line 40
 
+2023-01-20 07:04:56 notice: Uninitialized string offset: 0
+Request URL: /users/add
+Client IP: 127.0.0.1
+Trace:
+Cake\Routing\Asset::url() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Asset.php, line 159
+Cake\Routing\Asset::cssUrl() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Asset.php, line 94
+Cake\View\Helper\UrlHelper::css() /var/www/html/social/vendor/cakephp/cakephp/src/View/Helper/UrlHelper.php, line 166
+Cake\View\Helper\HtmlHelper::css() /var/www/html/social/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php, line 398
+include /var/www/html/social/templates/element/flash/header.php, line 32
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::_renderElement() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1712
+Cake\View\View::element() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 699
+include /var/www/html/social/templates/layout/mydefault.php, line 1
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::renderLayout() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 860
+Cake\View\View::render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 819
+Cake\Controller\Controller::render() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 773
+Cake\Controller\Controller::invokeAction() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 556
+Cake\Controller\ControllerFactory::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 139
+Cake\Controller\ControllerFactory::invoke() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/BaseApplication.php, line 320
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Authentication\Middleware\AuthenticationMiddleware::process() /var/www/html/social/vendor/cakephp/authentication/src/Middleware/AuthenticationMiddleware.php, line 124
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() /var/www/html/social/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 58
+Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
+[main] /var/www/html/social/webroot/index.php, line 40
+
