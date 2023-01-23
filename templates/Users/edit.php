@@ -18,20 +18,19 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="users form content">
-            <?= $this->Form->create($user) ?>
+            <?= $this->Form->create($user, ['enctype' => 'multipart/form-data']) ?>
             <fieldset>
                 <legend><?= __('Edit User') ?></legend>
                 <?php
+                    echo $this->Form->control('image',['type'=>'file','required'=>false]);
+                echo $this->Html->image(h($user->image), array('width' => '200px'));
                     echo $this->Form->control('name');
                     echo $this->Form->control('username');
                     echo $this->Form->control('dob');
                     echo $this->Form->control('gender');
                     echo $this->Form->control('email');
-                    echo $this->Form->control('password');
+                    echo $this->Form->control('phone');
                     echo $this->Form->control('address');
-                    echo $this->Form->control('image');
-                    echo $this->Form->control('created_date');
-                    echo $this->Form->control('token');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

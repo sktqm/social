@@ -88,12 +88,22 @@ class UsersTable extends Table
             ->maxLength('password', 225)
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
+        $validator
+            ->scalar('confirm-password')
+            ->maxLength('confirm-password', 225)
+            ->requirePresence('confirm-password', 'create')
+            ->notEmptyString('confirm-password');
 
         $validator
             ->scalar('address')
             ->maxLength('address', 100)
             ->requirePresence('address', 'create')
             ->notEmptyString('address');
+        $validator
+            ->scalar('phone')
+            ->maxLength('phone', 10)
+            ->requirePresence('phone', 'create')
+            ->notEmptyString('phone');
 
         $validator
             ->scalar('image')

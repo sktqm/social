@@ -5,8 +5,8 @@
     <?= $this->Form->create() ?>
 
     <div class="inputBox">
-        <?= $this->Form->control('email', ['required' => false, 'placeholder' => 'E-mail']) ?>
-        <?= $this->Form->control('password', ['required' => false, 'placeholder' => 'Password']) ?>
+    <?= $this->Form->control('email', ['required' => false, 'label' => false, 'placeholder' => 'E-mail']) ?>
+<?= $this->Form->control('password', ['required' => false, 'label' => false, 'placeholder' => 'Password']) ?>
     </div>
     <?= $this->Form->submit(__('Login')); ?>
     <?= $this->Form->end() ?>

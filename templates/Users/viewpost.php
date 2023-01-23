@@ -52,26 +52,7 @@
                                     <th><?= __('Action') ?></th>
                                 <?php } ?>
                             </tr>
-                            <?php foreach ($post->comments as $comment) : ?>
-                                <tr>
-                                    <td><?= h($comment->comment) ?></td>
-                                    <td><?= @h($comment->user->username) ?></td>
-                                    <?php if ($post->user_id != null) { ?>
-                                        <td class="actions">
-                                            <?= $this->Html->link(__('Edit'), ['action' => 'commentedit', $comment->id, $post->id, $post->user_id]) ?>
-                                            <?= $this->Form->postLink(__('Delete'), ['action' => 'commentdelete', $comment->id, $post->id, $post->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $comment->id)]) ?>
-                                        </td>
-                                    <?php } ?>
-
-                                </tr>
-                            <?php endforeach; ?>
-                        </table>
-                    </div>
-                 <?php 
-                //  endif; 
-                if ($post->user_id != null) {
-                ?>
-                    <div class="comment form content">
+                            <div class="comment form content">
                         <?= $this->Form->create($comment) ?>
                         <fieldset>
                             Type your Comment here
@@ -82,7 +63,22 @@
                         </fieldset>
                         <?= $this->Form->end() ?>
                     </div>
-                <?php } ?>
+                            <?php foreach ($post->comments as $comment) : ?>
+                                <tr>
+                                    <td><?= h($comment->comment) ?></td>
+                                    <td><?= @h($comment->user->username) ?></td>
+                                    <?php if ($post->user_id != null) { ?>
+                                        <td class="actions">
+                                            <?= $this->Form->postLink(__('Delete'), ['action' => 'commentdelete', $comment->id, $post->id, $post->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $comment->id)]) ?>
+                                        </td>
+                                    <?php } ?>
+
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </div>
+        
+                   
             </div>
         </div>
     </div>

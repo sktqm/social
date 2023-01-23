@@ -22,9 +22,9 @@
             <?= $this->Form->create($post, ["enctype" => "multipart/form-data"]) ?>
             <fieldset>
                 <legend><?= __('Add Post') ?></legend>
-                <?= $this->Form->control('file', ['type' => 'file', 'required' => false]) ?>
+                <?= $this->Form->control('image', ['type' => 'file', 'required' => false]) ?>
                 <?= $this->Form->control('title'); ?>
-                <?= $this->Form->control('subtitle'); ?>
+                <?= $this->Form->control('subtitle',['required' => false]); ?>
 
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

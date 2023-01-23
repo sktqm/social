@@ -1,70 +1,56 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- */
-?>
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- */
-?>
-<div class="form-bg">
-    <div class="container">
-<div class="row">
-    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
-        <div class="form-container">
-            <h3 class="title">User Registration</h3>
-            <?= $this->Form->create($user) ?>
-            <div class="form-group">
-                <?php echo $this->Form->control('name'); ?>
+<div class="loginBox">
+    <img class="user" src="/img/default.png" width="150px">
+    <?= $this->Flash->render() ?>
+    <h3>Login</h3>
+    <?= $this->Form->create($user, ['enctype' => "multipart/form-data"]) ?>
+    <div class="inputBox">
+        <div class="row">
+            <div class="col-md-12 ">
+                <?= $this->Form->control('image', ['required' => false, 'label' => false, 'type' => 'file', 'aria-label' => "File browser example"]) ?>
             </div>
-            <div class="form-group">
-                <?php echo $this->Form->control('username'); ?>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('username', ['required' => false, 'label' => false, 'placeholder' => 'UserName']) ?>
             </div>
-            <div class="form-group">
-                <?php echo $this->Form->control('password'); ?>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('email', ['required' => false, 'label' => false, 'placeholder' => 'E-mail']) ?>
             </div>
-            <div class="form-group">
-                <?php echo $this->Form->control('confirm_password'); ?>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('password', ['required' => false, 'label' => false, 'placeholder' => 'Password']) ?>
             </div>
-            <h4 class="sub-title">Personal Information</h4>
-            <div class="form-group">
-                <?php echo $this->Form->control('address'); ?>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('confirm-password', ['required' => false, 'label' => false, 'placeholder' => 'Confirm-Password']) ?>
             </div>
-            <div class="form-group">
-                <?php echo $this->Form->control('phone'); ?>
+            <div class="col-md-12">
+                <h3>Personal Details</h3>
             </div>
-            <div class="form-group">
-                <?php echo $this->Form->control('dob'); ?>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('name', ['required' => false, 'label' => false, 'placeholder' => 'Name']) ?>
             </div>
-            <div class="form-group">
-                <label for="gender">Gender</label>
-                <div class="gender-category ">
-                    <?= $this->Form->radio(
-                        'gender',
-                        ['1' => ' male ', '2' => ' female ', '0' => ' other '],
-                        ['required' => false]
-                    ) ?>
-                </div>
+            <div class="col-md-6">
+                <?= $this->Form->select(
+                    'gender',
+                    [1 => 'Male', 2 => 'Female'],
+                    ['empty' => 'Gender']
+                ); ?>
             </div>
-            <?= $this->Form->button(__('Create Account'), array('class' => 'btn signin')) ?>
-            <span class="user-login">Already Have an Account? Click Here to
-                <?= $this->Html->link(__('Login'), ['action' => 'login'], ['class' => 'user-login']) ?>
-            </span>
-            <?= $this->Form->end() ?>
-            <div class="social-links">
-                <span>Or Connect With</span>
-                <a href="#"><i class="fab fa-twitter"></i> twitter</a>
-                <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('dob', ['required' => false, 'label' => false, 'type' => 'date', 'placeholder' => 'DD/MM/YYYY']) ?>
             </div>
+            <div class="col-md-6 ">
+                <?= $this->Form->control('phone', ['required' => false, 'label' => false, 'type' => 'text', 'placeholder' => 'Phone-Number']) ?>
+            </div>
+            <div class="col-md-12 ">
+                <?= $this->Form->control('address', ['required' => false, 'label' => false, 'placeholder' => 'Addresss']) ?>
+            </div>
+        </div>
+        <?= $this->Form->submit(__('Sign-In')); ?>
+        <?= $this->Form->end() ?>
+
+        <?= $this->Html->link("forgotpassword", ['action' => 'forgot', 'class' => 'forgotcolor: #59238F']) ?>
+        <div class="text-center">
+
+            <?= $this->Html->link("Sign Up", ['action' => 'login', 'class' => 'signcolor: #59238F']) ?>
         </div>
     </div>
 </div>
-</div>
-</div>
-
-<?= $this->Html->css('signup', ['block' => 'css']); ?>
-
 <?= $this->Html->css('signup', ['block' => 'css']); ?>

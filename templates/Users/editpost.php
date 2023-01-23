@@ -22,10 +22,10 @@
                 <legend><?= __('Edit Post') ?></legend>
                 <div class="row">
                     <div class="col-md-6">
-                        <?php echo $this->Form->control('post_image', ['type' => 'file', 'required' => 'false']); ?>
+                        <?php echo $this->Form->control('image', ['type' => 'file', 'required' => false]); ?>
                     </div>
                     <div class="col-md-6">
-                        <td><?= $this->Html->image(h($post->post_image), array('width' => '300px')) ?></td>
+                        <td><?= $this->Html->image(h($post->image), array('width' => '300px')) ?></td>
                     </div>
                 </div>
                 <?php

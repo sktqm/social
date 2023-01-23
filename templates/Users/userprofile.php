@@ -19,6 +19,10 @@
             <h3><?= h($user->name) ?></h3>
             <table>
                 <tr>
+                    <th><?= __('Image') ?></th>
+                    <td><?=  $this->Html->image(h($user->image), array('width' => '200px'))?></td>
+                </tr>
+                <tr>
                     <th><?= __('Name') ?></th>
                     <td><?= h($user->name) ?></td>
                 </tr>
@@ -48,11 +52,11 @@
                 </tr>
                 <tr>
                     <th><?= __('Dob') ?></th>
-                    <td><?= h($user->dob) ?></td>
+                    <td><?= h($user->dob->format('d-m-Y ')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created Date') ?></th>
-                    <td><?= h($user->created_date) ?></td>
+                    <td><?= h($user->created_date->format('Y-m-d H:i:s')) ?></td>
                 </tr>
             </table>
         </div>
