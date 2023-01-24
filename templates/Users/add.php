@@ -29,7 +29,7 @@
             <div class="col-md-6">
                 <?= $this->Form->select(
                     'gender',
-                    [1 => 'Male', 2 => 'Female'],
+                    ['male' => 'Male', 'female' => 'Female'],
                     ['empty' => 'Gender']
                 ); ?>
             </div>

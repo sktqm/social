@@ -48,11 +48,11 @@
                 </tr>
                 <tr>
                     <th><?= __('Dob') ?></th>
-                    <td><?= h($user->dob) ?></td>
+                    <td><?= h($user->dob->format('d-m-Y ')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created Date') ?></th>
-                    <td><?= h($user->created_date) ?></td>
+                    <td><?= h($user->created_date->format('Y-m-d H:i:s')) ?></td>
                 </tr>
             </table>
         </div>

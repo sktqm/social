@@ -1,64 +1,125 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <?= $this->Html->image(h($user->image), array('width' => '200px')) ?>
+            </div>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="users view content">
-            <h3><?= h($user->name) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Image') ?></th>
-                    <td><?=  $this->Html->image(h($user->image), array('width' => '200px'))?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Name') ?></th>
-                    <td><?= h($user->name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Username') ?></th>
-                    <td><?= h($user->username) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Gender') ?></th>
-                    <td><?= h($user->gender) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Email') ?></th>
-                    <td><?= h($user->email) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Address') ?></th>
-                    <td><?= h($user->address) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Image') ?></th>
-                    <td><?= h($user->image) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($user->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Dob') ?></th>
-                    <td><?= h($user->dob->format('d-m-Y ')) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created Date') ?></th>
-                    <td><?= h($user->created_date->format('Y-m-d H:i:s')) ?></td>
-                </tr>
-            </table>
+        <div class="col-md-6">
+            <div class="profile-head">
+                <h3>
+                    <?= h($user->username) ?>
+                </h3>
+                <h6>
+                    <?= h($user->dob->format('d-m-Y ')) ?>
+                </h6>
+                <h6 class="proile-rating">Total No Of Posts: <span>
+                    <?= h($count) ?>
+                </span></h6>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <span class="nav-link active" id="Posts" data-toggle="tab" role="tab" >Posts</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link " id="About" data-toggle="tab" role="tab"
+                        aria-controls="home" aria-selected="true">About</span>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <div class="col-md-2">
+            <?= $this->Html->link(__('Edit Profile'), ['action' => 'edit', $user->id], ['class' => 'nav-link profile-edit-btn']) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-work">
+                <p>WORK LINK</p>
+                <span>Website Link</span><br />
+                <span>Bootsnipp Profile</span><br />
+                <span>Bootply Profile</span>
+                <p>SKILLS</p>
+                <span>PHP</span><br />
+                <span>Web Designer</span><br />
+                <span>Web Developer</span><br />
+                <span>WordPress</span><br />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="tab-content profile-tab" id="about_user" >
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>User Id</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <?= $this->Number->format($user->id) ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <?= h($user->name) ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Gender</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <?= h($user->gender) ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <?= h($user->email) ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <?= h($user->address) ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Created Date</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <?= h($user->created_date->format('Y-m-d H:i:s')) ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content profile-tab" id="post_user">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <?php foreach ($user->posts as $post) : ?>
+                            <div class="col-md-6">
+                       <?= $this->Html->image($post->image,['action'=>'viewpost', $post->id,'width' => '200px']);?>
+                        </div>
+                        <?php endforeach ; ?>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>

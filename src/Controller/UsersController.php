@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-
 namespace App\Controller;
+use Cake\ORM\TableRegistry;
 
 /**
  * Users Controller
@@ -55,12 +55,18 @@ class UsersController extends AppController
     }
     public function userprofile()
     {
+        $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Authentication->getIdentity();
         $uid = $user->id;
         $user = $this->Users->get($uid, [
-            'contain' => [],
+            'contain' => ['Posts'],
         ]);
-        $this->set(compact('user'));
+        // $post=TableRegistry::get("Posts");
+        $count= $this->Posts->find()->where(['user_id' => $uid])->count();
+        // echo '<pre>';
+        // print_r($user);
+        // die;
+        $this->set(compact('user','count'));
     }
 
     /**
@@ -86,13 +92,7 @@ class UsersController extends AppController
                 $fileName = $fileName2;
             }
             $user = $this->Users->patchEntity($user, $data);
-            // print_r( $user);
-            // die;
-            // print_r($data);die;
-
-            // echo '<pre>';
-            // print_r($this->request->getData('image'));
-            // die;
+          
             if ($this->Users->save($user)) {
                 $hasFileError = $productImage->getError();
 
@@ -179,6 +179,8 @@ class UsersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
+        $this->Users->Posts->deleteAll(array('user_id' => $id));
+        $this->Users->Comments->deleteAll(array('user_id' => $id));
         if ($this->Users->delete($user)) {
             $this->Flash->success(__('The user has been deleted.'));
         } else {
@@ -216,7 +218,6 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The comment could not be saved. Please, try again.'));
         }
-        $comment = $this->Comments->newEmptyEntity();
 
 
         $this->set(compact('post', 'comment'));
@@ -314,6 +315,7 @@ class UsersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $post = $this->Posts->get($id);
+        $this->Posts->Comments->deleteAll(array('post_id' => $id));
         if ($this->Posts->delete($post)) {
             $this->Flash->success(__('The post has been deleted.'));
         } else {
