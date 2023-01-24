@@ -4782,3 +4782,165 @@ Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Run
 Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
 [main] /var/www/html/social/webroot/index.php, line 40
 
+2023-01-24 06:32:07 notice: Undefined variable: html
+Request URL: /users/userprofile
+Client IP: 127.0.0.1
+Trace:
+include /var/www/html/social/templates/Users/userprofile.php, line 119
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 808
+Cake\Controller\Controller::render() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 773
+Cake\Controller\Controller::invokeAction() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 556
+Cake\Controller\ControllerFactory::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 139
+Cake\Controller\ControllerFactory::invoke() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/BaseApplication.php, line 320
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Authentication\Middleware\AuthenticationMiddleware::process() /var/www/html/social/vendor/cakephp/authentication/src/Middleware/AuthenticationMiddleware.php, line 124
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() /var/www/html/social/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 58
+Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
+[main] /var/www/html/social/webroot/index.php, line 40
+
+2023-01-24 06:32:11 notice: Undefined variable: html
+Request URL: /users/userprofile
+Referer URL: http://localhost:8765/users/edit/15
+Client IP: 127.0.0.1
+Trace:
+include /var/www/html/social/templates/Users/userprofile.php, line 119
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 808
+Cake\Controller\Controller::render() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 773
+Cake\Controller\Controller::invokeAction() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 556
+Cake\Controller\ControllerFactory::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 139
+Cake\Controller\ControllerFactory::invoke() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/BaseApplication.php, line 320
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Authentication\Middleware\AuthenticationMiddleware::process() /var/www/html/social/vendor/cakephp/authentication/src/Middleware/AuthenticationMiddleware.php, line 124
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() /var/www/html/social/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 58
+Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
+[main] /var/www/html/social/webroot/index.php, line 40
+
+2023-01-24 06:34:23 notice: Undefined variable: Html
+Request URL: /users/userprofile
+Client IP: 127.0.0.1
+Trace:
+include /var/www/html/social/templates/Users/userprofile.php, line 119
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 808
+Cake\Controller\Controller::render() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 773
+Cake\Controller\Controller::invokeAction() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 556
+Cake\Controller\ControllerFactory::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 139
+Cake\Controller\ControllerFactory::invoke() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/BaseApplication.php, line 320
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Authentication\Middleware\AuthenticationMiddleware::process() /var/www/html/social/vendor/cakephp/authentication/src/Middleware/AuthenticationMiddleware.php, line 124
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() /var/www/html/social/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 58
+Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
+[main] /var/www/html/social/webroot/index.php, line 40
+
+2023-01-24 06:34:32 notice: Undefined variable: Html
+Request URL: /users/userprofile
+Referer URL: http://localhost:8765/users/edit/15
+Client IP: 127.0.0.1
+Trace:
+include /var/www/html/social/templates/Users/userprofile.php, line 119
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 808
+Cake\Controller\Controller::render() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 773
+Cake\Controller\Controller::invokeAction() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 556
+Cake\Controller\ControllerFactory::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 139
+Cake\Controller\ControllerFactory::invoke() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/BaseApplication.php, line 320
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Authentication\Middleware\AuthenticationMiddleware::process() /var/www/html/social/vendor/cakephp/authentication/src/Middleware/AuthenticationMiddleware.php, line 124
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() /var/www/html/social/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 58
+Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
+[main] /var/www/html/social/webroot/index.php, line 40
+
+2023-01-24 06:37:20 notice: Undefined variable: Html
+Request URL: /users/userprofile
+Client IP: 127.0.0.1
+Trace:
+include /var/www/html/social/templates/Users/userprofile.php, line 119
+Cake\View\View::_evaluate() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1220
+Cake\View\View::_render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 1177
+Cake\View\View::render() /var/www/html/social/vendor/cakephp/cakephp/src/View/View.php, line 808
+Cake\Controller\Controller::render() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 773
+Cake\Controller\Controller::invokeAction() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/Controller.php, line 556
+Cake\Controller\ControllerFactory::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 139
+Cake\Controller\ControllerFactory::invoke() /var/www/html/social/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/BaseApplication.php, line 320
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Authentication\Middleware\AuthenticationMiddleware::process() /var/www/html/social/vendor/cakephp/authentication/src/Middleware/AuthenticationMiddleware.php, line 124
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() /var/www/html/social/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() /var/www/html/social/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 73
+Cake\Http\Runner::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Runner.php, line 58
+Cake\Http\Server::run() /var/www/html/social/vendor/cakephp/cakephp/src/Http/Server.php, line 90
+[main] /var/www/html/social/webroot/index.php, line 40
+

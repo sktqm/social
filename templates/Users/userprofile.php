@@ -114,9 +114,21 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="row">
                         <?php foreach ($user->posts as $post) : ?>
-                            <div class="col-md-6">
-                       <?= $this->Html->image($post->image,['action'=>'viewpost', $post->id,'width' => '200px']);?>
-                        </div>
+                            <div class="col-md-3 polaroid">
+
+                            <?php echo $this->Html->link(
+                            $this->Html->image($post->image,array('height' => '200', 'width' => '150','class'=>'abc'))
+                            ,array(
+                                'controller' => 'Users', 
+                                'action' => 'viewpost',$post->id
+                            )
+                            , array('escape' => false)
+                            );?>
+                                <p class="text-center"><?= h($post->title) ?></p>
+                            </div>
+                        
+
+
                         <?php endforeach ; ?>
                     </div>
                 </div>
