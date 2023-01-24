@@ -33,6 +33,7 @@ class UsersController extends AppController
         $this->paginate = [
             'contain' => ['Users'],
         ];
+        $posts = $this->Posts->find('all', ['order' => ['id' => 'DESC']]);
         $posts = $this->paginate($this->Posts);
 
         $this->set(compact('posts'));

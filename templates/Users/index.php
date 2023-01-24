@@ -22,7 +22,7 @@
             <tbody>
                 <?php foreach ($posts as $post): ?>
                 <tr>
-                    <td><?= $this->Number->format($post->user->id) ?></td>
+                    <td><?= $this->Number->format($post->id) ?></td>
                     
                     <td><?= h($post->user->username) ?></td>
                     <td><?= h($post->title) ?></td>

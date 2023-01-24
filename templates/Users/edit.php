@@ -23,7 +23,8 @@
                 <legend><?= __('Edit User') ?></legend>
                 <?php
                     echo $this->Form->control('image',['type'=>'file','required'=>false]);
-                echo $this->Html->image(h($user->image), array('width' => '200px'));
+                    echo $this->Html->image(h($user->image), array('width' => '200px'));
+                    // echo $this->Html->image(h($user->image),['width' => '200px']);
                     echo $this->Form->control('name');
                     echo $this->Form->control('username');
                     echo $this->Form->control('dob');
