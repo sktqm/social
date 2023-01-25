@@ -7,6 +7,9 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
+use Authentication\PasswordHasher\DefaultPasswordHasher;
+
 
 /**
  * Users Model
@@ -89,10 +92,10 @@ class UsersTable extends Table
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
         $validator
-            ->scalar('confirm-password')
-            ->maxLength('confirm-password', 225)
-            ->requirePresence('confirm-password', 'create')
-            ->notEmptyString('confirm-password');
+            ->scalar('confirm_password')
+            ->maxLength('confirm_password', 225)
+            ->requirePresence('confirm_password', 'create')
+            ->notEmptyString('confirm_password');
 
         $validator
             ->scalar('address')
@@ -136,13 +139,55 @@ class UsersTable extends Table
 
         return $rules;
     }
-    // public function checkEmailExist($email)
-    // {
-    //     $result = $this->find('all')->where(['email' => $email])->first();
-    //     if ($result) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    public function checktokenexist($token)
+    {
+        $result = $this->find('all')->where(['token' => $token])->first();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkEmailExist($email)
+    {
+        $result = $this->find('all')->where(['email' => $email])->first();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function resetPassword($token, $password)
+    {
+        $users = TableRegistry::get("Users");
+        $query = $users->query();
+        $pass=(new DefaultPasswordHasher())->hash($password);
+        $result = $query->update()
+            ->set(['password' => $pass, 'token' => ''])
+            ->where(['token' => $token])
+            ->execute();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function insertToken($email, $token)
+    {
+        $users = TableRegistry::get("Users");
+        $query = $users->query();
+        $result = $query->update()
+            ->set(['token' => $token])
+            ->where(['email' => $email])
+            ->execute();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

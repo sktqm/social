@@ -3,6 +3,9 @@
 declare(strict_types=1);
 namespace App\Controller;
 use Cake\ORM\TableRegistry;
+use Cake\Mailer\Email;
+use Cake\Mailer\Mailer;
+use Cake\Mailer\TransportFactory;
 
 /**
  * Users Controller
@@ -30,6 +33,8 @@ class UsersController extends AppController
 
     public function index()
     {
+        $this->viewBuilder()->setLayout('myprofile');
+
         $this->paginate = [
             'contain' => ['Users'],
         ];
@@ -54,7 +59,7 @@ class UsersController extends AppController
 
         $this->set(compact('user'));
     }
-    public function userprofile()
+    public function userprofile($uid=null)
     {
         $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Authentication->getIdentity();
@@ -201,17 +206,21 @@ class UsersController extends AppController
         $post = $this->Posts->get($id, [
             'contain' => ['Users', 'Comments'],
         ]);
-        $post['user_id'] = $user_id;
+        // $cname = $this->Comments->get( [
+        //     'contain' => ['Users'],
+        // ]);
         // echo '<pre>';
-        // print_r($post);
+        // print_r($cname);
+        // die;
+        $post['user_id'] = $user_id;
         $comment = $this->Comments->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
-
+            
             $data['post_id'] = $id;
             $data['user_id'] = $uid;
-
-
+            
+            
             $comment = $this->Comments->patchEntity($comment, $data);
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
@@ -219,10 +228,54 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The comment could not be saved. Please, try again.'));
         }
+        // $comment = $this->Comments->get($uid, [
+        //     'contain' => ['Users'],
+        // ]);
 
 
         $this->set(compact('post', 'comment'));
     }
+    // public function viewpost($id = null, $user_id = null)
+    // {
+    //     $this->paginate = [
+    //         'contain' => ['Users'],
+    //     ];
+    //     $user = $this->Authentication->getIdentity();
+    //     $uid = $user->id;
+    //     $post = $this->Posts->get($id, [
+    //         'contain' => ['Users', 'Comments'],
+    //     ]);
+    //     // $cname = $this->Comments->find('all', ['order' => ['id' => 'DESC']]);
+    //     $cname = $this->paginate($this->Comments);
+    //     // echo '<pre>';
+    //     // print_r($cname);
+    //     // die;
+        
+
+
+    //     $post['user_id'] = $user_id;
+    //     $comment = $this->Comments->newEmptyEntity();
+    //     if ($this->request->is(['patch', 'post', 'put'])) {
+    //         $data = $this->request->getData();
+            
+    //         $data['post_id'] = $id;
+    //         $data['user_id'] = $uid;
+            
+            
+    //         $comment = $this->Comments->patchEntity($comment, $data);
+    //         if ($this->Comments->save($comment)) {
+    //             $this->Flash->success(__('The comment has been saved.'));
+    //             return $this->redirect(['action' => 'viewpost', $id, $uid]);
+    //         }
+    //         $this->Flash->error(__('The comment could not be saved. Please, try again.'));
+    //     }
+    //     // $comment = $this->Comments->get($uid, [
+    //         //     'contain' => ['Users'],
+    //         // ]);
+
+
+    //     $this->set(compact('post', 'comment','cname'));
+    // }
 
 
     public function addpost()
@@ -335,7 +388,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login','add']);
+        $this->Authentication->addUnauthenticatedActions(['login','add','forgot','reset','getotp']);
     }
 
     public function login()
@@ -384,5 +437,87 @@ class UsersController extends AppController
     
             return $this->redirect(['action' => 'viewpost', $post_id,$uid]);
         }
+    }
+    //forgot password
+    public function forgot()
+    {
+        $this->viewBuilder()->setLayout('mydefault');
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $email = $this->request->getData('email');
+            $user->email = $email;
+            $result = $this->Users->checkEmailExist($email);
+            if ($result) {
+            $token = rand(10000, 99999);
+            $result = $this->Users->insertToken($email, $token);
+
+                $mailer = new Mailer('default');
+                $mailer->setTransport('gmail'); //your email configuration name
+                $mailer->setFrom(['kunal02chd@gmail.com' => 'Code The Pixel']);
+                $mailer->setTo($email);
+                $mailer->setEmailFormat('html');
+                $mailer->setSubject('O.T.P');
+                $mailer->deliver("$token is your one time password for animeclub");
+
+                $this->Flash->success(__('Reset email send successfully.'));
+
+                return $this->redirect(['action' => 'getotp']);
+            }
+            $this->Flash->error(__('Please enter valid credential..'));
+        }
+        $this->set(compact('user'));
+    }
+
+     
+    public function getotp()
+    {
+        
+        // $this->viewBuilder()->setLayout('mydefault');
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
+            
+            $token = $this->request->getData('token');
+            $result = $this->Users->checktokenexist($token);
+           
+            if ($result) {
+                $session = $this->getRequest()->getSession(); //get session
+                $session->write('token', $token); //write name value to session
+                return $this->redirect(['action' => 'reset']);
+            }
+            $this->Flash->error(__('Please enter valid password'));
+        // } else {
+        //     return $this->redirect(['action' => 'login']);
+        }
+        $this->set(compact('user'));
+    }
+    public function reset()
+    {
+        $session = $this->request->getSession(); //read session data
+        if ($session->read('token') != null) {
+        } else {
+            $this->redirect(['action' => 'login']);
+        } 
+            $token=$session->read('token');
+            $user = $this->Users->newEmptyEntity();
+            if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $password = $this->request->getData('password');
+            $confirm_password = $this->request->getData('confirm_password');
+            // echo '<pre>';
+            // print_r($confirm_password);
+            // print_r($password);
+            // die;
+                if($password == $confirm_password){
+                $res = $this->Users->resetPassword($token, $password);
+                if ($res) {
+                    $session->destroy();
+                    $this->Flash->success(__('Password updated successfully.'));
+                    return $this->redirect(['action' => 'login']);
+                }
+            }
+                $this->Flash->error(__('Please enter valid password'));   
+        }
+        $this->set(compact('user'));
     }
 }
