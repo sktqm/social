@@ -126,7 +126,10 @@
                             );?>
                                 <p class="text-center"><?= h($post->title) ?></p>
                             </div>
-                         <?php endforeach ; ?>
+                        
+
+
+                        <?php endforeach ; ?>
                     </div>
                 </div>
             </div>

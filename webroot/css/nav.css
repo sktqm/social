@@ -1,14 +1,14 @@
-body{
+body {
 
     background: #304FFE;
-} 
+}
 
 .form-control:focus {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
-     box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 
@@ -34,9 +34,11 @@ body{
     font-weight: 700;
     color: #007bff;
 }
-.navbar-brand:hover{
+
+.navbar-brand:hover {
     color: #007bff;
 }
+
 .navbar-right-top {}
 
 .navbar-right-top .nav-item {
@@ -193,15 +195,19 @@ body{
     0% {
         transform: scale(0.9);
     }
+
     25% {
         transform: scale(1.1);
     }
+
     40% {
         transform: scale(0.9);
     }
+
     60% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(0.9);
     }

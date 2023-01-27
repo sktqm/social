@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(/img/loginbc.jpg) no-repeat;
+    background: url(/img/picf.jpg) no-repeat;
     height: 100vh;
     font-family: sans-serif;
     background-size: cover;
@@ -130,5 +130,8 @@ p {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.error-message{
+    color: red;
 }
 

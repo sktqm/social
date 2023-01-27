@@ -12,6 +12,7 @@ body{
     text-align: center;
 }
 .profile-img img{
+    object-fit: contain;
     width: 70%;
     height: 100%;
     border-radius: 20px;
@@ -109,4 +110,3 @@ body{
   .abc{
     margin-top: 10px;
   }
-  

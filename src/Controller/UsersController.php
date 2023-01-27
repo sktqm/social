@@ -30,20 +30,31 @@ class UsersController extends AppController
     }
 
 
-
     public function index()
+        {
+            $this->viewBuilder()->setLayout('myprofile');
+            $this->paginate = [
+                'contain' => ['Users'],
+            ];
+            $posts = $this->paginate($this->Posts);
+            // echo '<pre>';
+            // $post = $this->Posts->find('all', ['order' => ['id' => 'DESC']]);
+        // print_r($post);
+        // die;
+            $this->set(compact('posts'));
+        }
+        public function listuser()
     {
         $this->viewBuilder()->setLayout('myprofile');
 
         $this->paginate = [
-            'contain' => ['Users'],
+            'contain' => ['Posts'],
         ];
-        $posts = $this->Posts->find('all', ['order' => ['id' => 'DESC']]);
-        $posts = $this->paginate($this->Posts);
-
-        $this->set(compact('posts'));
+        $users = $this->Users->find('all', ['order' => ['id' => 'DESC']]);
+        $users = $this->paginate($this->Users);
+        // print_r($users);die;
+        $this->set(compact('users'));
     }
-
     /**
      * View method
      *
@@ -85,7 +96,6 @@ class UsersController extends AppController
         
         $this->viewBuilder()->setLayout('mydefault');
         $user = $this->Users->newEmptyEntity();
-        $fileName2 = "default.png";
         if ($this->request->is('post')) {
 
             // print_r($user);
@@ -94,9 +104,6 @@ class UsersController extends AppController
             $productImage = $this->request->getData("image");
             $fileName = $productImage->getClientFilename();
             $data["image"] = $fileName;
-            if($fileName == ''){
-                $fileName = $fileName2;
-            }
             $user = $this->Users->patchEntity($user, $data);
           
             if ($this->Users->save($user)) {
@@ -134,6 +141,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Users->get($id, [
             'contain' => [],
         ]);
@@ -441,7 +449,7 @@ class UsersController extends AppController
     //forgot password
     public function forgot()
     {
-        $this->viewBuilder()->setLayout('mydefault');
+        $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -473,7 +481,7 @@ class UsersController extends AppController
     public function getotp()
     {
         
-        // $this->viewBuilder()->setLayout('mydefault');
+        $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             
@@ -520,4 +528,10 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
     }
+    public $paginate = [
+        'limit'=>25,
+        'order' => [
+            'Posts.id' => 'DESC'
+        ]
+    ];
 }
