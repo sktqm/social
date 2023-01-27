@@ -11,6 +11,7 @@ body{
 	-webkit-box-pack: center;
 	justify-content: center;
 	background-color: #f5f5f5;
+	background: url(/img/picf.jpg) no-repeat;
 }
 
 form{

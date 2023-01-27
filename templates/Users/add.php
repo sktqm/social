@@ -18,11 +18,11 @@
                 <span class="error-message" id="email-error"></span>
             </div>
             <div class="col-md-6 ">
-                <?= $this->Form->control('password', ['required' => false, 'label' => false, 'placeholder' => 'Password']) ?>
+                <?= $this->Form->control('password', ['required' => false, 'label' => false, 'placeholder' => 'Password','type'=>'password']) ?>
                 <span class="error-message" id="password-error"></span>
             </div>
             <div class="col-md-6 ">
-                <?= $this->Form->control('confirm_password', ['required' => false, 'label' => false, 'placeholder' => 'Confirm-Password']) ?>
+                <?= $this->Form->control('confirm_password', ['required' => false, 'label' => false, 'placeholder' => 'Confirm-Password','type'=>'password']) ?>
                 <span class="error-message" id="confirm-password-error"></span>
             </div>
             <div class="col-md-12">
@@ -52,8 +52,6 @@
         </div>
         <?= $this->Form->submit(__('Sign-In')); ?>
         <?= $this->Form->end() ?>
-
-        <?= $this->Html->link("forgotpassword", ['action' => 'forgot', 'class' => 'forgotcolor: #59238F']) ?>
         <div class="text-center">
 
             <?= $this->Html->link("Sign Up", ['action' => 'login', 'class' => 'signcolor: #59238F']) ?>

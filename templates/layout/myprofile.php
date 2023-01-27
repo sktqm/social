@@ -30,7 +30,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
@@ -38,11 +37,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
-    <?= $this->Html->css(['userprofile','nav']) ?>
+    <?= $this->Html->css(['userprofile','cake']) ?>
     <?= $this->Html->script('userp') ?>
-    <?= $this->Html->script('script') ?>
-    <?= $this->Html->script('getotp') ?>
-    <?= $this->Html->script('reset') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -54,6 +50,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
+          <?= $this->Breadcrumbs->render()?>
+
        
     <footer>
     </footer>

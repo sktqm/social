@@ -31,19 +31,19 @@ class UsersController extends AppController
 
 
     public function index()
-        {
-            $this->viewBuilder()->setLayout('myprofile');
-            $this->paginate = [
-                'contain' => ['Users'],
-            ];
-            $posts = $this->paginate($this->Posts);
-            // echo '<pre>';
-            // $post = $this->Posts->find('all', ['order' => ['id' => 'DESC']]);
+    {
+        $this->viewBuilder()->setLayout('myprofile');
+        $this->paginate = [
+            'contain' => ['Users'],
+        ];
+        $posts = $this->paginate($this->Posts);
+        // echo '<pre>';
+        // $post = $this->Posts->find('all', ['order' => ['id' => 'DESC']]);
         // print_r($post);
         // die;
-            $this->set(compact('posts'));
-        }
-        public function listuser()
+        $this->set(compact('posts'));
+    }
+    public function listuser()
     {
         $this->viewBuilder()->setLayout('myprofile');
 
@@ -70,7 +70,7 @@ class UsersController extends AppController
 
         $this->set(compact('user'));
     }
-    public function userprofile($uid=null)
+    public function userprofile($uid = null)
     {
         $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Authentication->getIdentity();
@@ -79,11 +79,11 @@ class UsersController extends AppController
             'contain' => ['Posts'],
         ]);
         // $post=TableRegistry::get("Posts");
-        $count= $this->Posts->find()->where(['user_id' => $uid])->count();
+        $count = $this->Posts->find()->where(['user_id' => $uid])->count();
         // echo '<pre>';
         // print_r($user);
         // die;
-        $this->set(compact('user','count'));
+        $this->set(compact('user', 'count'));
     }
 
     /**
@@ -93,7 +93,7 @@ class UsersController extends AppController
      */
     public function add()
     {
-        
+
         $this->viewBuilder()->setLayout('mydefault');
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -105,7 +105,7 @@ class UsersController extends AppController
             $fileName = $productImage->getClientFilename();
             $data["image"] = $fileName;
             $user = $this->Users->patchEntity($user, $data);
-          
+
             if ($this->Users->save($user)) {
                 $hasFileError = $productImage->getError();
 
@@ -147,13 +147,13 @@ class UsersController extends AppController
         ]);
 
 
-          $fileName2 = $user['image'];
+        $fileName2 = $user['image'];
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
             $productImage = $this->request->getData("image");
             $fileName = $productImage->getClientFilename();
             // print_r($fileName);die();
-            if($fileName == ''){
+            if ($fileName == '') {
                 $fileName = $fileName2;
             }
             // print_r($file);die();
@@ -209,6 +209,7 @@ class UsersController extends AppController
 
     public function viewpost($id = null, $user_id = null)
     {
+        // $this->viewBuilder()->setLayout('myprofile');
         $user = $this->Authentication->getIdentity();
         $uid = $user->id;
         $post = $this->Posts->get($id, [
@@ -224,11 +225,11 @@ class UsersController extends AppController
         $comment = $this->Comments->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
-            
+
             $data['post_id'] = $id;
             $data['user_id'] = $uid;
-            
-            
+
+
             $comment = $this->Comments->patchEntity($comment, $data);
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
@@ -258,18 +259,18 @@ class UsersController extends AppController
     //     // echo '<pre>';
     //     // print_r($cname);
     //     // die;
-        
+
 
 
     //     $post['user_id'] = $user_id;
     //     $comment = $this->Comments->newEmptyEntity();
     //     if ($this->request->is(['patch', 'post', 'put'])) {
     //         $data = $this->request->getData();
-            
+
     //         $data['post_id'] = $id;
     //         $data['user_id'] = $uid;
-            
-            
+
+
     //         $comment = $this->Comments->patchEntity($comment, $data);
     //         if ($this->Comments->save($comment)) {
     //             $this->Flash->success(__('The comment has been saved.'));
@@ -303,7 +304,7 @@ class UsersController extends AppController
 
 
 
-            
+
             if ($this->Posts->save($post)) {
 
                 $hasFileError = $productImage->getError();
@@ -396,7 +397,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login','add','forgot','reset','getotp']);
+        $this->Authentication->addUnauthenticatedActions(['login', 'add', 'forgot', 'reset', 'getotp']);
     }
 
     public function login()
@@ -411,7 +412,7 @@ class UsersController extends AppController
                 'controller' => 'Users',
                 'action' => 'index',
             ]);
-            
+
 
             return $this->redirect($redirect);
         }
@@ -431,8 +432,7 @@ class UsersController extends AppController
     }
 
     public function commentdelete($id = null, $post_id)
-    {
-        {
+    { {
             $user = $this->Authentication->getIdentity();
             $uid = $user->id;
             $this->request->allowMethod(['post', 'delete']);
@@ -442,14 +442,14 @@ class UsersController extends AppController
             } else {
                 $this->Flash->error(__('The comment could not be deleted. Please, try again.'));
             }
-    
-            return $this->redirect(['action' => 'viewpost', $post_id,$uid]);
+
+            return $this->redirect(['action' => 'viewpost', $post_id, $uid]);
         }
     }
     //forgot password
     public function forgot()
     {
-        $this->viewBuilder()->setLayout('myprofile');
+        $this->viewBuilder()->setLayout('mydefault');
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -457,8 +457,8 @@ class UsersController extends AppController
             $user->email = $email;
             $result = $this->Users->checkEmailExist($email);
             if ($result) {
-            $token = rand(10000, 99999);
-            $result = $this->Users->insertToken($email, $token);
+                $token = rand(10000, 99999);
+                $result = $this->Users->insertToken($email, $token);
 
                 $mailer = new Mailer('default');
                 $mailer->setTransport('gmail'); //your email configuration name
@@ -477,38 +477,40 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
-     
+
     public function getotp()
     {
-        
-        $this->viewBuilder()->setLayout('myprofile');
+
+        $this->viewBuilder()->setLayout('mydefault');
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
-            
+
             $token = $this->request->getData('token');
             $result = $this->Users->checktokenexist($token);
-           
+
             if ($result) {
                 $session = $this->getRequest()->getSession(); //get session
                 $session->write('token', $token); //write name value to session
                 return $this->redirect(['action' => 'reset']);
             }
             $this->Flash->error(__('Please enter valid password'));
-        // } else {
-        //     return $this->redirect(['action' => 'login']);
+            // } else {
+            //     return $this->redirect(['action' => 'login']);
         }
         $this->set(compact('user'));
     }
     public function reset()
     {
+        $this->viewBuilder()->setLayout('mydefault');
+
         $session = $this->request->getSession(); //read session data
         if ($session->read('token') != null) {
         } else {
             $this->redirect(['action' => 'login']);
-        } 
-            $token=$session->read('token');
-            $user = $this->Users->newEmptyEntity();
-            if ($this->request->is('post')) {
+        }
+        $token = $session->read('token');
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $password = $this->request->getData('password');
             $confirm_password = $this->request->getData('confirm_password');
@@ -516,7 +518,7 @@ class UsersController extends AppController
             // print_r($confirm_password);
             // print_r($password);
             // die;
-                if($password == $confirm_password){
+            if ($password == $confirm_password) {
                 $res = $this->Users->resetPassword($token, $password);
                 if ($res) {
                     $session->destroy();
@@ -524,14 +526,8 @@ class UsersController extends AppController
                     return $this->redirect(['action' => 'login']);
                 }
             }
-                $this->Flash->error(__('Please enter valid password'));   
+            $this->Flash->error(__('Please enter valid password'));
         }
         $this->set(compact('user'));
     }
-    public $paginate = [
-        'limit'=>25,
-        'order' => [
-            'Posts.id' => 'DESC'
-        ]
-    ];
 }

@@ -12,5 +12,6 @@ $('#About').click(function(){
     $('#Posts').removeClass('active');
     $('#About').addClass('active');
 })
+
     
   });

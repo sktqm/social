@@ -3,6 +3,10 @@
  * @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\User> $users
  */
+// $this->Breadcrumbs->add(
+//     'Viewpost',
+//     ['controller' => 'Users', 'action' => 'viewpost', ]
+// );
 ?>
 <div class="users index content">
     <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
@@ -40,6 +44,7 @@
     </div>
     
 </div> -->
+
  <div class="container posts-content">
     <div class="row">
         <?php foreach ($posts as $post): ?>
